@@ -46,10 +46,10 @@ def grab_headlines():
     txt_file = base_url.read()
     soup = BeautifulSoup(txt_file, "html.parser")
 
-    most_read = soup.find_all('li')
     opinions = []
-    for line in most_read:
-        opinions.append(line.string)
+
+    for most_read in soup.find_all('ol'):
+        opinions.append(most_read.string)
 
     return opinions
 
